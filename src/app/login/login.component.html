@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<body>
+    
+    <div class="box">
+        <section class="container">
+            <header><b>Login to cat world</b></header>
+            <form class="form">
+                <div class="column">
+                    <div class="input-box">
+                        <label>Email:</label>
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            [(ngModel)]="email"
+                            (input)="filterEmail($event)"
+                            (input)="checkField('email')"
+                            placeholder="Enter Email ..."
+                            required
+                            #emailInput="ngModel" />
+                    </div>
+                    <div *ngIf="isCheckField['email']">
+                        <small>กรุณากรอกอีเมล</small>
+                    </div>
+                    <div *ngIf="!isValidEmail && !isCheckField['email']">
+                        <small>กรุณากรอกอีเมลให้ถูกต้อง</small>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label>Password:</label>
+                    <input
+                        type="password"
+                        id="pass"
+                        name="pass"
+                        [(ngModel)]="pass"
+                        placeholder="Enter password ..."
+                        required
+                        #passInput="ngModel" />
+                    <div *ngIf="isCheckField['pass']">
+                        <small>กรุณากรอกรหัสผ่าน</small>
+                    </div>
+                    <div *ngIf="pass.length > 0 && pass.length < 8">
+                        <small>กรุณากรอกรหัสผ่านให้ครบถ้วน</small>
+                    </div>
+                </div>
+                <div class="button">
+                    <div class="button-login">
+                        <button type="button" (click)="goLogin()">Login</button>
+                        <audio #audioPlayer src="../../assets/sounds/rclick-13693.mp3"></audio>
+                    </div>
+                </div>
+            </form>
+            <div class="text-regis">
+                <a class="text">Don't have an account?</a>
+                <a class="link" routerLink="/app-register">Register</a>
+            </div>
+        </section>
+        
+    </div>
+</body>

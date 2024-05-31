@@ -1,0 +1,19 @@
+<app-navbar [title]="'Cats Page'" [links]="CatsLinks"></app-navbar>
+<body>
+    <div *ngFor="let cat of cats_list">
+      <div class="container">
+        <div class="column">
+          <div class="box-img"><img src="{{ cat.image }}" /></div>
+          <div>
+            <div><b>Name: </b> {{ cat.name }}</div>
+            <div><b>Origin: </b>{{ cat.origin }}</div>
+            <div><b>Temperament: </b>{{ cat.temperament }}</div>
+            <div><b>Colors: </b>{{ cat.colors }}</div>
+            <div><b>Description: </b>{{ cat.description }}</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </body>
+  

@@ -1,0 +1,13 @@
+<app-navbar [title]="'Home Page'" [links]="homeLinks"></app-navbar>
+
+<body>
+    <div class="img-cat">
+        <img *ngIf="catImg" src="{{ catImg }}" alt="Random Cat">
+    </div>
+    <div class="button">
+        <div class="button-rand">
+            <button (click)="getCat()">Load New Cat</button>
+            <audio #audioPlayer src="../../assets/sounds/rclick-13693.mp3"></audio>
+        </div>
+    </div>
+</body>

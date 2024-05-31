@@ -1,0 +1,183 @@
+<app-navbar></app-navbar>
+<body>
+    <div class="wrapper">
+        <section class="container">
+            <header><b>Registration Form</b></header>
+            <form action="#" class="form">
+                <div class="column">
+                    <div class="input-box">
+                        <label>Firstname</label>
+                        <input
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                            [(ngModel)]="firstName"
+                            placeholder="Enter first name ..."
+                            (input)="checkBoolean('firstName')"
+                            required
+                            #firstInput="ngModel" />
+                        <div *ngIf="isCheckField['firstName']">
+                            <small>กรุณากรอกชื่อ</small>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label>Lastname</label>
+                        <input
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                            [(ngModel)]="lastName"
+                            (input)="checkBoolean('lastName')"
+                            placeholder="Enter last name ..."
+                            required
+                            #lastInput="ngModel" />
+                        <div *ngIf="isCheckField['lastName']">
+                            <small>กรุณากรอกนามสกุล</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="input-box">
+                        <label>Age</label>
+                        <input
+                            type="text"
+                            id="age"
+                            name="age"
+                            [(ngModel)]="age"
+                            placeholder="Enter age ..."
+                            required
+                            (input)="filterAge($event)"
+                            maxlength="3"
+                            (input)="checkBoolean('age')"
+                            #ageInput="ngModel" />
+                        <div *ngIf="isCheckField['age']">
+                            <small>กรุณากรอกอายุ</small>
+                        </div>
+                        <div *ngIf="ageNumber > 130">
+                            <small>กรุณากรอกอายุน้อยกว่า 130</small>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label>Gender</label>
+                        <div class="select-box">
+                            <select
+                                type="text"
+                                id="gender"
+                                name="gender"
+                                (input)="checkBoolean('gender')"
+                                [(ngModel)]="gender"
+                                #genderInput="ngModel">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="LGBTQ+">LGBTQ+</option>
+                            </select>
+                        </div>
+                        <div *ngIf="isCheckField['gender']">
+                            <small>กรุณากรอกเพศ</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label>Email</label>
+                    <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        [(ngModel)]="email"
+                        placeholder="Enter Email ..."
+                        (input)="filterEmail($event)"
+                        (input)="checkBoolean('email')"
+                        required
+                        #emailInput="ngModel" />
+                </div>
+                <div *ngIf="isCheckField['email']">
+                    <small>กรุณากรอกอีเมล</small>
+                </div>
+                <div *ngIf="!isValidEmail && !isCheckField['email']">
+                    <small>กรุณากรอกอีเมลให้ถูกต้อง</small>
+                </div>
+                <div class="input-box">
+                    <label>Phone</label>
+                    <input
+                        type="text"
+                        id="tel"
+                        name="tel"
+                        [(ngModel)]="tel"
+                        maxlength="10"
+                        (input)="checkBoolean('phone')"
+                        (input)="filterPhone($event)"
+                        placeholder="Enter your phone number ..."
+                        required
+                        #telInput="ngModel" />
+                </div>
+                <div *ngIf="isCheckField['phone']">
+                    <small>กรุณากรอกเบอร์โทรศัพท์</small>
+                </div>
+                <div *ngIf="tel.length !== 10 && tel.length > 0">
+                    <small>กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง</small>
+                </div>
+                <div class="column">
+                    <div>
+                        <div class="input-box">
+                            <label for="pass">Password</label>
+                            <input
+                                type="password"
+                                id="pass"
+                                name="pass"
+                                [(ngModel)]="pass"
+                                minlength="8"
+                                placeholder="Enter password"
+                                (input)="checkBoolean('pass')"
+                                required
+                                #passInput="ngModel" />
+                        </div>
+                        <div *ngIf="isCheckField['pass']">
+                            <small>กรุณากรอกรหัสผ่าน</small>
+                        </div>
+                        <div *ngIf="pass.length > 0 && pass.length < 8">
+                            <small>กรุณากรอกรหัสผ่านให้ครบถ้วน</small>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-box">
+                            <label for="verPass">Confirm Password</label>
+                            <input
+                                type="password"
+                                id="verPass"
+                                name="verPass"
+                                [(ngModel)]="verPass"
+                                placeholder="Enter password"
+                                (input)="checkBoolean('verPass')"
+                                required
+                                #verPassInput="ngModel" />
+                        </div>
+                        <div *ngIf="isCheckField['verPass']">
+                            <small>กรุณากรอกรหัสผ่าน</small>
+                        </div>
+                        <div
+                            *ngIf="
+                                verPass.length > 0 && verPass.length < 8
+                            ">
+                            <small>กรุณากรอกรหัสผ่านอย่างน้อย 8 ตัว</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="button">
+                    <div class="button-reg">
+                        <button type="button" (click)="goClick()">
+                            Register
+                        </button>
+                        <audio #audioPlayer src="../../assets/sounds/rclick-13693.mp3"></audio>
+                    </div>
+                    <div class="button-cancel">
+                        <button type="button" (click)="backToHome()">
+                            Cancel
+                        </button>
+                        <audio #audioPlayer src="../../assets/sounds/rclick-13693.mp3"></audio>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
