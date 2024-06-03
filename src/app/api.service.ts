@@ -21,8 +21,8 @@ export class ApiService {
   }
 
   private apiUrlImg = 'https://api.api-ninjas.com/v1/cats';
-  private apiKey = 'PyE5JIkfhIv5kPuLRvIgHoneLcPiF4g1hqlxwhw5';
-  // private apiKey = 'A0i1mSwmCi7B7dblBG2/0Q==RSHrCJaSB5SNOP1B';
+  // private apiKey = 'PyE5JIkfhIv5kPuLRvIgHoneLcPiF4g1hqlxwhw5';
+  private apiKey = 'A0i1mSwmCi7B7dblBG2/0Q==RSHrCJaSB5SNOP1B';
   getImgCats(name: string): Observable<any> {
     const headers = new HttpHeaders({
       'X-Api-Key': this.apiKey

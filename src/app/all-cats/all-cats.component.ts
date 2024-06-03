@@ -61,7 +61,7 @@ export class AllCatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.check();
-    // this.getCatData();
+    this.getCatData();
   }
 
   check(){
