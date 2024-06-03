@@ -37,7 +37,7 @@ export class AllCatsComponent implements OnInit {
       temperament: 'Social, Vocal, Intelligent',
       colors: 'Seal Point, Blue Point, Chocolate Point, Lilac Point',
       description: 'The Siamese cat is a vocal and affectionate breed known for its striking blue almond-shaped eyes. They are highly social and enjoy interactive play with their human companions.',
-      image: 'https://lh3.googleusercontent.com/OzQsMkaR9pJ1X8qh8OfdYsaME6dS5-CX0DjwlFvArrJ6iGiglaLfXJNUEXluU5-sIIsrTbcNQiAl-44rvsz_ziViIfl-_PUMBT4Lm6znbKpMZGuh-y3GK4yWcOqKox6wdgUJVpua',
+      image: 'https://www.catster.com/wp-content/uploads/2023/11/Siamese-Cat_Andreas-LischkaPixabay.jpg',
     },
     {
       name: 'Maine Coon',
@@ -80,7 +80,9 @@ export class AllCatsComponent implements OnInit {
     for (let id = 1; id <= 40; id++) {
       this.Service.getCats(id).subscribe((data) => {
         this.catsData.push(data);
+        console.log(data);
         this.convertData(this.catsData);
+        console.log(this.cats_list);
       });
     }
   }
@@ -111,12 +113,8 @@ export class AllCatsComponent implements OnInit {
           } else {
             console.error(`No image found for cat: ${cat.name}`);
           }
-        },
-        error => {
-          console.error(`Error fetching image for cat: ${cat.name}`, error);
         }
       );
     });
   }
-
 }

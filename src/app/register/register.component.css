@@ -13,6 +13,7 @@ body {
     justify-content: center;
     padding: 20px;
     background: rgb(119, 119, 119);
+    margin-top: 60px;
 }
 header {
     display: flex;
@@ -200,19 +201,3 @@ img {
         row-gap: 15px;
     }
 }
-@media screen and (max-width: 700px) {
-    img {
-        display: none;
-    }
-}
-
-/* check */
-/* input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type=number] {
-  -moz-appearance: textfield;
-} */

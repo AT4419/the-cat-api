@@ -14,8 +14,8 @@
                             [(ngModel)]="firstName"
                             placeholder="Enter first name ..."
                             (input)="checkBoolean('firstName')"
-                            required
-                            #firstInput="ngModel" />
+                            #firstInput="ngModel"
+                            required />
                         <div *ngIf="isCheckField['firstName']">
                             <small>กรุณากรอกชื่อ</small>
                         </div>
@@ -29,8 +29,7 @@
                             [(ngModel)]="lastName"
                             (input)="checkBoolean('lastName')"
                             placeholder="Enter last name ..."
-                            required
-                            #lastInput="ngModel" />
+                            #lastInput="ngModel" required />
                         <div *ngIf="isCheckField['lastName']">
                             <small>กรุณากรอกนามสกุล</small>
                         </div>
@@ -45,11 +44,11 @@
                             name="age"
                             [(ngModel)]="age"
                             placeholder="Enter age ..."
-                            required
                             (input)="filterAge($event)"
                             maxlength="3"
                             (input)="checkBoolean('age')"
-                            #ageInput="ngModel" />
+                            #ageInput="ngModel" 
+                            required />
                         <div *ngIf="isCheckField['age']">
                             <small>กรุณากรอกอายุ</small>
                         </div>

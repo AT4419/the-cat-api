@@ -12,7 +12,6 @@ export class LoginGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     let email = localStorage.getItem('email');
     let pass = localStorage.getItem('pass');
-    console.log('โหล ๆ')
     if(email && pass) {
       return true;
     }

@@ -130,6 +130,7 @@ export class RegisterComponent {
             this.router.navigate(['/app-register']);
         }
     }
+    
     isCheckField: { [key: string]: boolean } = {};
     checkBoolean(key?: string) {
         if (key) {
