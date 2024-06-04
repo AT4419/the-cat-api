@@ -142,7 +142,6 @@ export class RegisterComponent {
                 this.isCheckField['age'] = this.age.trim() === '';
             } else if (key === 'gender') {
                 this.isCheckField['gender'] = this.gender.trim() === '';
-                console.log(this.isCheckField['gender']);
             } else if (key === 'email') {
                 this.isCheckField['email'] = this.email.trim() === '';
             } else if (key === 'phone') {

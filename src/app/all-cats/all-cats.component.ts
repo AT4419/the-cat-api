@@ -113,8 +113,19 @@ export class AllCatsComponent implements OnInit {
           } else {
             console.error(`No image found for cat: ${cat.name}`);
           }
+          if (index === this.cats_list.length - 1) { // เรียกเมื่อโหลดครบทุกตัว
+            this.checkAndRemoveCatsWithoutImage();
+          }
         }
       );
+      
     });
+
+  }
+
+  checkAndRemoveCatsWithoutImage() {
+    this.cats_list = this.cats_list.filter(cat => cat.image !== '');
+    console.log('Updated cats_list:', this.cats_list);
   }
 }
+
