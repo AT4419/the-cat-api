@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
     this.Service.getRandCat().subscribe(res => {
       this.catImg = res;
       console.log(res);
-      
     })
     this.playSound();
   }

@@ -61,7 +61,7 @@ export class AllCatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.check();
-    this.getCatData();
+    // this.getCatData();
   }
 
   check(){
@@ -113,7 +113,7 @@ export class AllCatsComponent implements OnInit {
           } else {
             console.error(`No image found for cat: ${cat.name}`);
           }
-          if (index === this.cats_list.length - 1) { // เรียกเมื่อโหลดครบทุกตัว
+          if (index === this.cats_list.length - 1) {
             this.checkAndRemoveCatsWithoutImage();
           }
         }
